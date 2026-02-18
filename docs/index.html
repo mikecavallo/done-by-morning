@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Done By Morning | AI-Powered Overnight Research & Analysis</title>
+  <meta name="description" content="Submit your research request by 6pm. Wake up to a comprehensive report by 6am. Market research, competitor analysis, business plans - delivered overnight.">
+  <meta property="og:title" content="Done By Morning | Overnight Research That Actually Gets Done">
+  <meta property="og:description" content="Stop waiting weeks for research. Get comprehensive reports delivered while you sleep.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --midnight: #0a0a1a;
+      --night: #0f0f2d;
+      --twilight: #1a1a40;
+      --dusk: #2d2d5a;
+      --moon: #f4f4ff;
+      --star: #ffd700;
+      --aurora-1: #4f46e5;
+      --aurora-2: #7c3aed;
+      --aurora-3: #a855f7;
+      --sunrise: #f97316;
+      --text-primary: #ffffff;
+      --text-secondary: #a5a5c0;
+      --text-muted: #6b6b8a;
+      --success: #10b981;
+      --gradient-aurora: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+      --gradient-night: linear-gradient(180deg, #0a0a1a 0%, #1a1a40 100%);
+      --shadow-glow: 0 0 60px rgba(124, 58, 237, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--midnight);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Stars background */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle var(--duration, 3s) infinite;
+      opacity: var(--opacity, 0.5);
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: var(--opacity, 0.5); }
+      50% { opacity: 0.1; }
+    }
+
+    /* Aurora background */
+    .aurora {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      background: 
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(79, 70, 229, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(124, 58, 237, 0.1), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 80%, rgba(168, 85, 247, 0.08), transparent);
+      animation: aurora 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes aurora {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(2%, 1%) rotate(1deg); }
+      66% { transform: translate(-1%, 2%) rotate(-1deg); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      background: rgba(10, 10, 26, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 1.75rem;
+    }
+
+    .logo-text {
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-aurora);
+      color: white;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 80px rgba(124, 58, 237, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-large {
+      padding: 1.1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      to { left: 100%; }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      color: var(--aurora-3);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero-eyebrow .moon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .hero h1 .gradient {
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 .highlight {
+      color: var(--star);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 1.35rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Time Display */
+    .time-promise {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem 3rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    .time-block {
+      text-align: center;
+    }
+
+    .time-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .time-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .time-arrow {
+      font-size: 2rem;
+      color: var(--aurora-2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+    }
+
+    /* Social Proof Bar */
+    .proof-bar {
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .proof-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-stat {
+      text-align: center;
+    }
+
+    .proof-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .proof-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 7rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-eyebrow {
+      color: var(--aurora-2);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: linear-gradient(180deg, transparent, rgba(79, 70, 229, 0.05), transparent);
+    }
+
+    .steps-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .steps-line {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: calc(100% - 120px);
+      background: linear-gradient(180deg, var(--aurora-1), var(--aurora-3));
+      opacity: 0.3;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .step:nth-child(odd) .step-content {
+      grid-column: 1;
+      text-align: right;
+    }
+
+    .step:nth-child(odd) .step-visual {
+      grid-column: 3;
+    }
+
+    .step:nth-child(even) .step-content {
+      grid-column: 3;
+      text-align: left;
+    }
+
+    .step:nth-child(even) .step-visual {
+      grid-column: 1;
+      order: -1;
+    }
+
+    .step-number {
+      grid-column: 2;
+      width: 70px;
+      height: 70px;
+      background: var(--gradient-aurora);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: white;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .step-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .step-time {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(124, 58, 237, 0.2);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--aurora-3);
+    }
+
+    .step-visual {
+      height: 200px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-aurora);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(124, 58, 237, 0.3);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .service-tag {
+      padding: 0.35rem 0.75rem;
+      background: rgba(124, 58, 237, 0.15);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--aurora-3);
+    }
+
+    /* Pricing Section */
+    .pricing {
+      background: linear-gradient(180deg, transparent, rgba(79, 70, 229, 0.08), transparent);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 3rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--aurora-2);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-aurora);
+      color: white;
+      padding: 0.4rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .pricing-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-price {
+      margin-bottom: 2rem;
+    }
+
+    .pricing-amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+
+    .pricing-period {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+    }
+
+    /* Comparison */
+    .comparison {
+      max-width: 900px;
+      margin: 4rem auto 0;
+      overflow-x: auto;
+    }
+
+    .comparison table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .comparison th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .comparison td {
+      font-size: 0.95rem;
+    }
+
+    .comparison .highlight {
+      color: var(--aurora-3);
+      font-weight: 600;
+    }
+
+    .comparison .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--success);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .testimonial-stars {
+      color: var(--star);
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.1em;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-aurora);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .faq-question::before {
+      content: 'Q';
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    .faq-answer {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding-left: 1.75rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 8rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-guarantee {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .cta-guarantee svg {
+      color: var(--success);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--aurora-3);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .nav-links { display: none; }
+      
+      .step {
+        grid-template-columns: auto 1fr;
+        gap: 1.5rem;
+      }
+      
+      .step-number { grid-column: 1; grid-row: 1; }
+      .step-content { grid-column: 2; text-align: left !important; }
+      .step-visual { display: none; }
+      .steps-line { display: none; }
+      
+      .time-promise {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .time-arrow {
+        transform: rotate(90deg);
+      }
+      
+      .pricing-card.featured {
+        transform: none;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Urgency Banner */
+    .urgency-banner {
+      background: var(--gradient-aurora);
+      padding: 0.75rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .urgency-banner strong {
+      color: var(--star);
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  <div class="aurora"></div>
+
+  <div class="urgency-banner">
+    🌙 <strong>Limited spots available</strong> — We only take 5 new clients per week to ensure quality
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">🌙</span>
+        <span class="logo-text">Done By Morning</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#cta" class="btn btn-primary">Get Started →</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="moon">🌙</span>
+      AI-Powered Research • Delivered Overnight
+    </div>
+    
+    <h1>
+      Submit at <span class="gradient">6pm</span>.<br>
+      Wake up to <span class="highlight">answers</span>.
+    </h1>
+    
+    <p class="hero-subtitle">
+      Stop waiting weeks for research. Our AI agents work through the night to deliver 
+      comprehensive market research, competitor analysis, and strategic insights — 
+      all ready by the time you pour your morning coffee.
+    </p>
+    
+    <div class="hero-cta">
+      <a href="#pricing" class="btn btn-primary btn-large btn-glow">
+        Start Your First Report →
+      </a>
+      <a href="#how-it-works" class="btn btn-secondary btn-large">
+        See How It Works
+      </a>
+    </div>
+
+    <div class="time-promise">
+      <div class="time-block">
+        <div class="time-value">6:00 PM</div>
+        <div class="time-label">Submit Request</div>
+      </div>
+      <div class="time-arrow">→</div>
+      <div class="time-block">
+        <div class="time-value">6:00 AM</div>
+        <div class="time-label">Report Ready</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof-bar">
+    <div class="proof-inner">
+      <div class="proof-stat">
+        <div class="proof-value">500+</div>
+        <div class="proof-label">Reports Delivered</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-value">12 hrs</div>
+        <div class="proof-label">Average Turnaround</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-value">$2,500</div>
+        <div class="proof-label">Avg. Saved vs Consultants</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-value">4.9/5</div>
+        <div class="proof-label">Client Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Deliver</div>
+      <h2 class="section-title">Research That Moves Your Business Forward</h2>
+      <p class="section-subtitle">
+        From market sizing to competitive intelligence — comprehensive analysis delivered overnight.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Market Research</h3>
+        <p class="service-desc">
+          Comprehensive market sizing, trends, growth drivers, and opportunity analysis. 
+          Understand your TAM, SAM, and SOM with data-backed projections.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Market Size</span>
+          <span class="service-tag">Growth Trends</span>
+          <span class="service-tag">Target Segments</span>
+          <span class="service-tag">Pricing Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3 class="service-title">Competitor Analysis</h3>
+        <p class="service-desc">
+          Deep dives on 5-15 competitors including pricing, positioning, features, 
+          strengths, weaknesses, and strategic gaps you can exploit.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Pricing Intel</span>
+          <span class="service-tag">Feature Matrix</span>
+          <span class="service-tag">SWOT Analysis</span>
+          <span class="service-tag">Gap Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3 class="service-title">Business Plans</h3>
+        <p class="service-desc">
+          Investor-ready business plans with market analysis, financial projections, 
+          go-to-market strategy, and competitive positioning.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Executive Summary</span>
+          <span class="service-tag">Financial Model</span>
+          <span class="service-tag">GTM Strategy</span>
+          <span class="service-tag">Risk Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3 class="service-title">Due Diligence</h3>
+        <p class="service-desc">
+          Comprehensive analysis for M&A, investment decisions, or partnership evaluations. 
+          Uncover risks and opportunities before you commit.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Company Analysis</span>
+          <span class="service-tag">Market Position</span>
+          <span class="service-tag">Risk Assessment</span>
+          <span class="service-tag">Synergy Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3 class="service-title">Industry Reports</h3>
+        <p class="service-desc">
+          Custom industry deep-dives covering trends, key players, technology shifts, 
+          regulatory landscape, and future outlook.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Trend Analysis</span>
+          <span class="service-tag">Key Players</span>
+          <span class="service-tag">Tech Landscape</span>
+          <span class="service-tag">Future Outlook</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3 class="service-title">Go-To-Market Strategy</h3>
+        <p class="service-desc">
+          Launch strategies with channel analysis, pricing recommendations, 
+          positioning frameworks, and phased rollout plans.
+        </p>
+        <div class="service-examples">
+          <span class="service-tag">Channel Strategy</span>
+          <span class="service-tag">Pricing Model</span>
+          <span class="service-tag">Launch Plan</span>
+          <span class="service-tag">KPI Framework</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="section-header">
+      <div class="section-eyebrow">Simple Process</div>
+      <h2 class="section-title">From Request to Report in 12 Hours</h2>
+      <p class="section-subtitle">
+        No calls. No meetings. No waiting. Just results.
+      </p>
+    </div>
+
+    <div class="steps-container">
+      <div class="steps-line"></div>
+      
+      <div class="step">
+        <div class="step-content">
+          <h3 class="step-title">Submit Your Brief</h3>
+          <p class="step-desc">
+            Tell us what you need to know. Market size? Competitor analysis? 
+            Business plan? The more context, the better your report.
+          </p>
+          <span class="step-time">Takes 5 minutes</span>
+        </div>
+        <div class="step-number">1</div>
+        <div class="step-visual">📝</div>
+      </div>
+
+      <div class="step">
+        <div class="step-content">
+          <h3 class="step-title">We Work Through The Night</h3>
+          <p class="step-desc">
+            Our AI agents analyze hundreds of sources, synthesize data, 
+            and compile insights while you sleep. No humans cutting corners.
+          </p>
+          <span class="step-time">8-12 hours</span>
+        </div>
+        <div class="step-number">2</div>
+        <div class="step-visual">🤖</div>
+      </div>
+
+      <div class="step">
+        <div class="step-content">
+          <h3 class="step-title">Wake Up to Answers</h3>
+          <p class="step-desc">
+            Your comprehensive report lands in your inbox by 6am. 
+            Fully formatted, actionable insights, ready to use.
+          </p>
+          <span class="step-time">By 6:00 AM</span>
+        </div>
+        <div class="step-number">3</div>
+        <div class="step-visual">☀️</div>
+      </div>
+
+      <div class="step">
+        <div class="step-content">
+          <h3 class="step-title">Revisions (If Needed)</h3>
+          <p class="step-desc">
+            Need deeper analysis on something specific? Request unlimited 
+            revisions within 48 hours at no extra cost.
+          </p>
+          <span class="step-time">Same-day turnaround</span>
+        </div>
+        <div class="step-number">4</div>
+        <div class="step-visual">🔄</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="section-header">
+      <div class="section-eyebrow">Simple Pricing</div>
+      <h2 class="section-title">Pay Per Report. No Subscriptions.</h2>
+      <p class="section-subtitle">
+        One price. Comprehensive research. Delivered overnight.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Focused Report</div>
+        <div class="pricing-desc">Single topic, deep analysis</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$499</span>
+          <span class="pricing-period">per report</span>
+        </div>
+        <ul class="pricing-features">
+          <li>One focused research question</li>
+          <li>10-15 page report</li>
+          <li>5-10 sources analyzed</li>
+          <li>12-hour delivery</li>
+          <li>1 round of revisions</li>
+          <li>PDF + Google Docs format</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-name">Comprehensive Report</div>
+        <div class="pricing-desc">Full market + competitor analysis</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$999</span>
+          <span class="pricing-period">per report</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Multi-faceted research</li>
+          <li>25-40 page report</li>
+          <li>15-25 sources analyzed</li>
+          <li>12-hour delivery</li>
+          <li>Unlimited revisions (48hr)</li>
+          <li>All formats + raw data</li>
+          <li>30-min strategy call included</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-glow">Most Popular →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-name">Enterprise Deep Dive</div>
+        <div class="pricing-desc">Full business plan + strategy</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$2,499</span>
+          <span class="pricing-period">per report</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Complete business analysis</li>
+          <li>50-75 page report</li>
+          <li>30+ sources analyzed</li>
+          <li>24-hour delivery</li>
+          <li>Unlimited revisions (7 days)</li>
+          <li>Financial model included</li>
+          <li>1-hour strategy call</li>
+          <li>Presentation deck</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <table>
+        <thead>
+          <tr>
+            <th>Compare To</th>
+            <th>Price</th>
+            <th>Turnaround</th>
+            <th>Quality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="highlight">Done By Morning</td>
+            <td>$499-$2,499</td>
+            <td><span class="badge">12-24 hours</span></td>
+            <td>Comprehensive</td>
+          </tr>
+          <tr>
+            <td>Management Consultants</td>
+            <td>$10,000-$50,000</td>
+            <td>4-8 weeks</td>
+            <td>Comprehensive</td>
+          </tr>
+          <tr>
+            <td>Freelance Analysts</td>
+            <td>$2,000-$5,000</td>
+            <td>1-2 weeks</td>
+            <td>Variable</td>
+          </tr>
+          <tr>
+            <td>DIY Research</td>
+            <td>Your time</td>
+            <td>Days-weeks</td>
+            <td>Limited</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="section-header">
+      <div class="section-eyebrow">What Clients Say</div>
+      <h2 class="section-title">Trusted by Decision-Makers</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "I submitted a request at 5pm for competitor analysis. By 6am, I had a 30-page 
+          report covering 12 competitors with pricing, features, and strategic gaps. 
+          This would have taken my team two weeks."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JC</div>
+          <div>
+            <div class="testimonial-name">James Chen</div>
+            <div class="testimonial-role">VP Strategy, Series B Startup</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "We used Done By Morning for due diligence on an acquisition target. 
+          The depth of analysis was on par with what we'd get from a $50K consulting 
+          engagement. Game changer for our M&A process."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SR</div>
+          <div>
+            <div class="testimonial-name">Sarah Rodriguez</div>
+            <div class="testimonial-role">Partner, Private Equity Firm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "I needed market sizing for a board presentation the next day. 
+          Done By Morning delivered a comprehensive TAM/SAM/SOM analysis with 
+          methodology I could defend. Saved my pitch."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div>
+            <div class="testimonial-name">Michael Kim</div>
+            <div class="testimonial-role">CEO, AI Startup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-header">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">Questions? We've Got Answers.</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4 class="faq-question">How do you deliver such comprehensive research overnight?</h4>
+        <p class="faq-answer">
+          We use advanced AI agents that can analyze hundreds of sources simultaneously. 
+          While you sleep, our systems are synthesizing data from public filings, industry reports, 
+          news articles, and proprietary databases into actionable insights.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4 class="faq-question">What's the quality compared to consulting firms?</h4>
+        <p class="faq-answer">
+          Our reports are comprehensive and well-sourced. For most business decisions, 
+          they're comparable to what you'd get from a mid-tier consulting engagement. 
+          For highly specialized or regulated industries, we recommend supplementing with domain experts.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4 class="faq-question">What if I need revisions?</h4>
+        <p class="faq-answer">
+          All plans include revisions. Focused reports get 1 round, Comprehensive gets unlimited 
+          revisions for 48 hours, and Enterprise gets 7 days. Most clients don't need revisions, 
+          but we've got you covered if you do.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4 class="faq-question">Is my information confidential?</h4>
+        <p class="faq-answer">
+          Absolutely. We sign NDAs on request, and all client data is encrypted and deleted 
+          after 30 days. We never share client briefs or use them to train our systems.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4 class="faq-question">What if I submit after 6pm?</h4>
+        <p class="faq-answer">
+          We accept requests 24/7. Submit by 6pm local time for next-morning delivery. 
+          Requests after 6pm are delivered by 6pm the following day (still ~24 hours).
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h4 class="faq-question">Do you offer refunds?</h4>
+        <p class="faq-answer">
+          Yes. If your report doesn't meet your expectations after revisions, we offer a 
+          full refund. No questions asked. We've issued less than 1% refunds to date.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="cta-section">
+    <h2 class="cta-title">Ready to Wake Up to Answers?</h2>
+    <p class="cta-subtitle">
+      Stop spending weeks on research. Submit your first brief today and 
+      experience the future of business intelligence.
+    </p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary btn-large btn-glow">
+        Start Your First Report →
+      </a>
+      <a href="#" class="btn btn-secondary btn-large">
+        Schedule a Demo
+      </a>
+    </div>
+    <div class="cta-guarantee">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      100% satisfaction guarantee • Full refund if not satisfied
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            🌙 Done By Morning
+          </div>
+          <p class="footer-desc">
+            AI-powered overnight research and analysis. 
+            Submit at 6pm, wake up to comprehensive reports by 6am.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Market Research</a></li>
+            <li><a href="#">Competitor Analysis</a></li>
+            <li><a href="#">Business Plans</a></li>
+            <li><a href="#">Due Diligence</a></li>
+            <li><a href="#">Industry Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Done By Morning. All rights reserved.</div>
+        <div>Made with 🌙 for busy executives</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+      star.style.setProperty('--opacity', (0.3 + Math.random() * 0.5));
+      star.style.animationDelay = Math.random() * 3 + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .pricing-card, .testimonial, .faq-item, .step').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
