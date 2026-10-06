@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Request ID | 20261006-084724-ai-document-intake-for-small-accounting-firms |
+| Request ID | 20261006-085305-ai-document-intake-for-small-accounting-firms-2ad3 |
 | Depth | standard |
-| Generated | 2026-10-06T08:47:24+00:00 |
+| Generated | 2026-10-06T08:53:05+00:00 |
 | Language model | mock |
 | Search provider | mock |
 | Sources | 11 |

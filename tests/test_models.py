@@ -7,7 +7,8 @@ def test_request_defaults_and_validation():
     req = ResearchRequest(question="  What is X?  ")
     assert req.question == "What is X?"
     assert req.depth == "standard"
-    assert req.id.endswith("what-is-x")
+    assert "-what-is-x-" in req.id
+    assert ResearchRequest(question="What is X?").id != req.id
     with pytest.raises(ValueError):
         ResearchRequest(question="")
     with pytest.raises(ValueError):

@@ -1,0 +1,13 @@
+[
+  {
+    "question": "AI document intake for small accounting firms",
+    "depth": "quick",
+    "email": "client@example.com",
+    "context": "20-person firm deciding whether to adopt before tax season"
+  },
+  {
+    "question": "Pricing models for AI document intake tools",
+    "depth": "standard",
+    "email": "client@example.com"
+  }
+]

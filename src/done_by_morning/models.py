@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import uuid
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 
@@ -43,7 +44,8 @@ class ResearchRequest:
             self.submitted_at = utcnow().isoformat(timespec="seconds")
         if not self.id:
             stamp = utcnow().strftime("%Y%m%d-%H%M%S")
-            self.id = f"{stamp}-{slugify(self.question)}"
+            # Short random suffix keeps IDs unique when the same question is queued twice.
+            self.id = f"{stamp}-{slugify(self.question)}-{uuid.uuid4().hex[:4]}"
 
     @classmethod
     def from_dict(cls, data: dict) -> ResearchRequest:

@@ -30,6 +30,7 @@ done_by_morning = ["fixtures/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
