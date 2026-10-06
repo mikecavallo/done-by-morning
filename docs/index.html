@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Done By Morning | AI-Powered Overnight Research & Analysis</title>
-  <meta name="description" content="Submit your research request by 6pm. Wake up to a comprehensive report by 6am. Market research, competitor analysis, business plans - delivered overnight.">
-  <meta property="og:title" content="Done By Morning | Overnight Research That Actually Gets Done">
-  <meta property="og:description" content="Stop waiting weeks for research. Get comprehensive reports delivered while you sleep.">
+  <meta name="description" content="Send a research question by 6pm and get a cited report the next morning. Market research, competitor analysis and industry briefs, produced by an AI research agent.">
+  <meta property="og:title" content="Done By Morning | Overnight research with every source cited">
+  <meta property="og:description" content="Send a research question in the evening. Wake up to a cited report.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -719,62 +719,6 @@
     }
 
     /* Testimonials */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonial {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 2.5rem;
-    }
-
-    .testimonial-stars {
-      color: var(--star);
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.1em;
-    }
-
-    .testimonial-text {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 1.75rem;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .testimonial-avatar {
-      width: 50px;
-      height: 50px;
-      background: var(--gradient-aurora);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .testimonial-name {
-      font-weight: 600;
-    }
-
-    .testimonial-role {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
 
     /* FAQ */
     .faq-grid {
@@ -953,6 +897,122 @@
       color: var(--text-muted);
     }
 
+
+    /* Sample report */
+    .sample-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .sample-card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .sample-card p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .sample-card ul { color: var(--text-secondary); padding-left: 1.2rem; margin-bottom: 1.5rem; }
+    .sample-card li { margin-bottom: 0.4rem; }
+
+    .sample-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--star);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 999px;
+      padding: 0.2rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .sample-preview {
+      background: var(--night);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .sample-preview strong { color: var(--text-primary); }
+    .sample-preview sup { color: var(--aurora-3); }
+
+    /* Intake form */
+    .intake {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      text-align: left;
+    }
+
+    .intake-form {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .intake-form .full { grid-column: 1 / -1; }
+
+    .intake-form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .intake-form .hint { font-weight: 400; color: var(--text-muted); }
+
+    .intake-form input,
+    .intake-form select,
+    .intake-form textarea {
+      width: 100%;
+      font: inherit;
+      color: var(--text-primary);
+      background: var(--night);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+    }
+
+    .intake-form textarea { min-height: 130px; resize: vertical; }
+
+    .intake-form input:focus,
+    .intake-form select:focus,
+    .intake-form textarea:focus {
+      outline: 2px solid var(--aurora-3);
+      outline-offset: 1px;
+    }
+
+    .intake-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .intake-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .intake-actions button { border: none; cursor: pointer; font: inherit; }
+
+    .intake-note { color: var(--text-muted); font-size: 0.85rem; }
+
+    .intake-status { font-size: 0.95rem; min-height: 1.5rem; }
+    .intake-status.ok { color: var(--success); }
+    .intake-status.err { color: var(--sunrise); }
+
+    @media (max-width: 768px) {
+      .sample-card, .intake-form { grid-template-columns: 1fr; padding: 1.5rem; }
+      section { padding: 5rem 1rem; }
+    }
+
     /* Responsive */
     @media (max-width: 968px) {
       .nav-links { display: none; }
@@ -995,31 +1055,15 @@
       }
     }
 
-    /* Urgency Banner */
-    .urgency-banner {
-      background: var(--gradient-aurora);
-      padding: 0.75rem 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .urgency-banner strong {
-      color: var(--star);
-    }
   </style>
 </head>
 <body>
   <div class="stars" id="stars"></div>
   <div class="aurora"></div>
 
-  <div class="urgency-banner">
-    🌙 <strong>Limited spots available</strong> — We only take 5 new clients per week to ensure quality
-  </div>
-
   <nav>
     <div class="nav-inner">
-      <a href="#" class="logo">
+      <a href="#top" class="logo">
         <span class="logo-icon">🌙</span>
         <span class="logo-text">Done By Morning</span>
       </a>
@@ -1028,12 +1072,12 @@
         <a href="#how-it-works">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="#cta" class="btn btn-primary">Get Started →</a>
+        <a href="#intake" class="btn btn-primary">Request a Report →</a>
       </div>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-eyebrow">
       <span class="moon">🌙</span>
       AI-Powered Research • Delivered Overnight
@@ -1045,17 +1089,17 @@
     </h1>
     
     <p class="hero-subtitle">
-      Stop waiting weeks for research. Our AI agents work through the night to deliver 
-      comprehensive market research, competitor analysis, and strategic insights — 
-      all ready by the time you pour your morning coffee.
+      Send a business research question in the evening. An AI research agent plans the
+      questions behind it, gathers sources overnight, and writes a report where every claim
+      links back to its source, ready when you start your day.
     </p>
     
     <div class="hero-cta">
-      <a href="#pricing" class="btn btn-primary btn-large btn-glow">
-        Start Your First Report →
+      <a href="#intake" class="btn btn-primary btn-large btn-glow">
+        Request a Report →
       </a>
-      <a href="#how-it-works" class="btn btn-secondary btn-large">
-        See How It Works
+      <a href="sample/report.html" class="btn btn-secondary btn-large">
+        See a Sample Report
       </a>
     </div>
 
@@ -1075,20 +1119,20 @@
   <div class="proof-bar">
     <div class="proof-inner">
       <div class="proof-stat">
-        <div class="proof-value">500+</div>
-        <div class="proof-label">Reports Delivered</div>
+        <div class="proof-value">Cited</div>
+        <div class="proof-label">Every claim links to a source</div>
       </div>
       <div class="proof-stat">
-        <div class="proof-value">12 hrs</div>
-        <div class="proof-label">Average Turnaround</div>
+        <div class="proof-value">Overnight</div>
+        <div class="proof-label">Brief by 6pm, report next morning</div>
       </div>
       <div class="proof-stat">
-        <div class="proof-value">$2,500</div>
-        <div class="proof-label">Avg. Saved vs Consultants</div>
+        <div class="proof-value">Per report</div>
+        <div class="proof-label">No subscription</div>
       </div>
       <div class="proof-stat">
-        <div class="proof-value">4.9/5</div>
-        <div class="proof-label">Client Rating</div>
+        <div class="proof-value">Open source</div>
+        <div class="proof-label">The research engine is on GitHub</div>
       </div>
     </div>
   </div>
@@ -1107,8 +1151,8 @@
         <div class="service-icon">📊</div>
         <h3 class="service-title">Market Research</h3>
         <p class="service-desc">
-          Comprehensive market sizing, trends, growth drivers, and opportunity analysis. 
-          Understand your TAM, SAM, and SOM with data-backed projections.
+          Market sizing, trends, growth drivers, and opportunity analysis, with the
+          sources and assumptions behind every TAM, SAM, and SOM estimate shown.
         </p>
         <div class="service-examples">
           <span class="service-tag">Market Size</span>
@@ -1122,8 +1166,8 @@
         <div class="service-icon">🎯</div>
         <h3 class="service-title">Competitor Analysis</h3>
         <p class="service-desc">
-          Deep dives on 5-15 competitors including pricing, positioning, features, 
-          strengths, weaknesses, and strategic gaps you can exploit.
+          Profiles of the competitors you name (or the ones we find), covering pricing,
+          positioning, features, strengths, weaknesses, and gaps.
         </p>
         <div class="service-examples">
           <span class="service-tag">Pricing Intel</span>
@@ -1137,8 +1181,8 @@
         <div class="service-icon">📋</div>
         <h3 class="service-title">Business Plans</h3>
         <p class="service-desc">
-          Investor-ready business plans with market analysis, financial projections, 
-          go-to-market strategy, and competitive positioning.
+          Research for a business plan: market analysis, competitive positioning,
+          go-to-market options, and the assumptions a financial model would need.
         </p>
         <div class="service-examples">
           <span class="service-tag">Executive Summary</span>
@@ -1152,8 +1196,8 @@
         <div class="service-icon">🔍</div>
         <h3 class="service-title">Due Diligence</h3>
         <p class="service-desc">
-          Comprehensive analysis for M&A, investment decisions, or partnership evaluations. 
-          Uncover risks and opportunities before you commit.
+          Public-source background research for an acquisition, investment, or partnership.
+          A starting point for diligence, not a replacement for legal or financial review.
         </p>
         <div class="service-examples">
           <span class="service-tag">Company Analysis</span>
@@ -1198,9 +1242,9 @@
   <section id="how-it-works" class="how-it-works">
     <div class="section-header">
       <div class="section-eyebrow">Simple Process</div>
-      <h2 class="section-title">From Request to Report in 12 Hours</h2>
+      <h2 class="section-title">From Request to Report Overnight</h2>
       <p class="section-subtitle">
-        No calls. No meetings. No waiting. Just results.
+        Send a brief, get a cited report. A call is optional, not required.
       </p>
     </div>
 
@@ -1224,8 +1268,8 @@
         <div class="step-content">
           <h3 class="step-title">We Work Through The Night</h3>
           <p class="step-desc">
-            Our AI agents analyze hundreds of sources, synthesize data, 
-            and compile insights while you sleep. No humans cutting corners.
+            A research agent splits your question into sub-questions, searches the web
+            for each one, and drafts a report that cites a numbered source for every claim.
           </p>
           <span class="step-time">8-12 hours</span>
         </div>
@@ -1237,8 +1281,8 @@
         <div class="step-content">
           <h3 class="step-title">Wake Up to Answers</h3>
           <p class="step-desc">
-            Your comprehensive report lands in your inbox by 6am. 
-            Fully formatted, actionable insights, ready to use.
+            Your report arrives by email the next morning as a readable web page and a
+            Markdown file, with the full source list so you can check the work.
           </p>
           <span class="step-time">By 6:00 AM</span>
         </div>
@@ -1250,8 +1294,8 @@
         <div class="step-content">
           <h3 class="step-title">Revisions (If Needed)</h3>
           <p class="step-desc">
-            Need deeper analysis on something specific? Request unlimited 
-            revisions within 48 hours at no extra cost.
+            Need more depth on one area? Revisions are included; the number of rounds
+            depends on the plan you choose.
           </p>
           <span class="step-time">Same-day turnaround</span>
         </div>
@@ -1284,9 +1328,9 @@
           <li>5-10 sources analyzed</li>
           <li>12-hour delivery</li>
           <li>1 round of revisions</li>
-          <li>PDF + Google Docs format</li>
+          <li>Web page + Markdown report</li>
         </ul>
-        <a href="#" class="btn btn-secondary">Get Started</a>
+        <a href="#intake" class="btn btn-secondary" data-plan="Focused Report ($499)">Request a Focused Report</a>
       </div>
 
       <div class="pricing-card featured">
@@ -1302,10 +1346,10 @@
           <li>15-25 sources analyzed</li>
           <li>12-hour delivery</li>
           <li>Unlimited revisions (48hr)</li>
-          <li>All formats + raw data</li>
+          <li>All formats + full source list</li>
           <li>30-min strategy call included</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-glow">Most Popular →</a>
+        <a href="#intake" class="btn btn-primary btn-glow" data-plan="Comprehensive Report ($999)">Request a Comprehensive Report →</a>
       </div>
 
       <div class="pricing-card">
@@ -1325,103 +1369,46 @@
           <li>1-hour strategy call</li>
           <li>Presentation deck</li>
         </ul>
-        <a href="#" class="btn btn-secondary">Contact Sales</a>
+        <a href="#intake" class="btn btn-secondary" data-plan="Enterprise Deep Dive ($2,499)">Ask About Enterprise</a>
       </div>
     </div>
 
-    <div class="comparison">
-      <table>
-        <thead>
-          <tr>
-            <th>Compare To</th>
-            <th>Price</th>
-            <th>Turnaround</th>
-            <th>Quality</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="highlight">Done By Morning</td>
-            <td>$499-$2,499</td>
-            <td><span class="badge">12-24 hours</span></td>
-            <td>Comprehensive</td>
-          </tr>
-          <tr>
-            <td>Management Consultants</td>
-            <td>$10,000-$50,000</td>
-            <td>4-8 weeks</td>
-            <td>Comprehensive</td>
-          </tr>
-          <tr>
-            <td>Freelance Analysts</td>
-            <td>$2,000-$5,000</td>
-            <td>1-2 weeks</td>
-            <td>Variable</td>
-          </tr>
-          <tr>
-            <td>DIY Research</td>
-            <td>Your time</td>
-            <td>Days-weeks</td>
-            <td>Limited</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </section>
 
-  <section id="testimonials">
+  <section id="sample">
     <div class="section-header">
-      <div class="section-eyebrow">What Clients Say</div>
-      <h2 class="section-title">Trusted by Decision-Makers</h2>
+      <div class="section-eyebrow">See the Output</div>
+      <h2 class="section-title">What a Report Looks Like</h2>
+      <p class="section-subtitle">
+        Done By Morning is new, so instead of testimonials, here is the real format.
+      </p>
     </div>
 
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "I submitted a request at 5pm for competitor analysis. By 6am, I had a 30-page 
-          report covering 12 competitors with pricing, features, and strategic gaps. 
-          This would have taken my team two weeks."
+    <div class="sample-card">
+      <div>
+        <span class="sample-label">Sample output generated from fixture data</span>
+        <h3>AI document intake for small accounting firms</h3>
+        <p>
+          This sample was produced by the open-source engine running in offline mode, with
+          fictional fixture sources and a mock model standing in for the real ones. The
+          structure is exactly what a client receives:
         </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JC</div>
-          <div>
-            <div class="testimonial-name">James Chen</div>
-            <div class="testimonial-role">VP Strategy, Series B Startup</div>
-          </div>
-        </div>
+        <ul>
+          <li>The research plan: the sub-questions the agent investigated</li>
+          <li>An executive summary and findings for each sub-question</li>
+          <li>Numbered citations that link to a full reference list</li>
+          <li>Limitations and open questions, stated plainly</li>
+        </ul>
+        <a href="sample/report.html" class="btn btn-primary">See a Sample Report →</a>
       </div>
-
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "We used Done By Morning for due diligence on an acquisition target. 
-          The depth of analysis was on par with what we'd get from a $50K consulting 
-          engagement. Game changer for our M&A process."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SR</div>
-          <div>
-            <div class="testimonial-name">Sarah Rodriguez</div>
-            <div class="testimonial-role">Partner, Private Equity Firm</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "I needed market sizing for a board presentation the next day. 
-          Done By Morning delivered a comprehensive TAM/SAM/SOM analysis with 
-          methodology I could defend. Saved my pitch."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MK</div>
-          <div>
-            <div class="testimonial-name">Michael Kim</div>
-            <div class="testimonial-role">CEO, AI Startup</div>
-          </div>
-        </div>
+      <div class="sample-preview" aria-hidden="true">
+        <strong>Executive summary</strong><br>
+        In this fictional survey of 120 small accounting firms, 38 percent said they already
+        use some form of automated document intake<sup>[1]</sup>. Adoption tends to start with
+        one workflow, usually client document collection during tax season<sup>[2]</sup>.<br><br>
+        <strong>References</strong><br>
+        1. [Fixture] Small-firm technology survey (fictional)<br>
+        2. [Fixture] Practice management newsletter (fictional)
       </div>
     </div>
   </section>
@@ -1434,77 +1421,117 @@
 
     <div class="faq-grid">
       <div class="faq-item">
-        <h4 class="faq-question">How do you deliver such comprehensive research overnight?</h4>
+        <h4 class="faq-question">How does the overnight research work?</h4>
         <p class="faq-answer">
-          We use advanced AI agents that can analyze hundreds of sources simultaneously. 
-          While you sleep, our systems are synthesizing data from public filings, industry reports, 
-          news articles, and proprietary databases into actionable insights.
+          A research agent breaks your question into focused sub-questions, runs web searches
+          for each, and has a large language model (Anthropic Claude by default) write a report
+          using only the sources it found. Every claim carries a numbered citation. The engine
+          is open source on
+          <a href="https://github.com/mikecavallo/done-by-morning" style="color: var(--aurora-3);">GitHub</a>.
         </p>
       </div>
 
       <div class="faq-item">
-        <h4 class="faq-question">What's the quality compared to consulting firms?</h4>
+        <h4 class="faq-question">How good is the research?</h4>
         <p class="faq-answer">
-          Our reports are comprehensive and well-sourced. For most business decisions, 
-          they're comparable to what you'd get from a mid-tier consulting engagement. 
-          For highly specialized or regulated industries, we recommend supplementing with domain experts.
+          It is as good as the public sources available on your topic, and every source is
+          listed so you can check it. It works best for market scans, competitor overviews,
+          and background research. It is not legal, financial, or investment advice.
         </p>
       </div>
 
       <div class="faq-item">
         <h4 class="faq-question">What if I need revisions?</h4>
         <p class="faq-answer">
-          All plans include revisions. Focused reports get 1 round, Comprehensive gets unlimited 
-          revisions for 48 hours, and Enterprise gets 7 days. Most clients don't need revisions, 
-          but we've got you covered if you do.
+          Revisions are included. Focused reports get 1 round, Comprehensive gets unlimited
+          revisions for 48 hours, and Enterprise gets 7 days.
         </p>
       </div>
 
       <div class="faq-item">
         <h4 class="faq-question">Is my information confidential?</h4>
         <p class="faq-answer">
-          Absolutely. We sign NDAs on request, and all client data is encrypted and deleted 
-          after 30 days. We never share client briefs or use them to train our systems.
+          Your brief is used only to produce your report and is never published. If your
+          question involves sensitive details, mention it in the form and we will agree on
+          how to handle them before you share anything confidential.
         </p>
       </div>
 
       <div class="faq-item">
         <h4 class="faq-question">What if I submit after 6pm?</h4>
         <p class="faq-answer">
-          We accept requests 24/7. Submit by 6pm local time for next-morning delivery. 
-          Requests after 6pm are delivered by 6pm the following day (still ~24 hours).
+          Requests are accepted any time. Briefs received by 6pm (US Eastern) are worked on
+          that night; later briefs go into the next night's batch.
         </p>
       </div>
 
       <div class="faq-item">
-        <h4 class="faq-question">Do you offer refunds?</h4>
+        <h4 class="faq-question">How do I pay?</h4>
         <p class="faq-answer">
-          Yes. If your report doesn't meet your expectations after revisions, we offer a 
-          full refund. No questions asked. We've issued less than 1% refunds to date.
+          Nothing is charged on this site. After you send a brief we reply by email to confirm
+          scope, price, and delivery time, and work starts once you approve.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="cta" class="cta-section">
+  <section id="intake" class="cta-section">
     <h2 class="cta-title">Ready to Wake Up to Answers?</h2>
     <p class="cta-subtitle">
-      Stop spending weeks on research. Submit your first brief today and 
-      experience the future of business intelligence.
+      Tell us what you need to know. We reply by email to confirm scope and price before
+      any work starts.
     </p>
-    <div class="cta-buttons">
-      <a href="#" class="btn btn-primary btn-large btn-glow">
-        Start Your First Report →
-      </a>
-      <a href="#" class="btn btn-secondary btn-large">
-        Schedule a Demo
-      </a>
-    </div>
-    <div class="cta-guarantee">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-      </svg>
-      100% satisfaction guarantee • Full refund if not satisfied
+
+    <div class="intake">
+      <form class="intake-form" id="intake-form" name="intake" data-netlify="true" netlify-honeypot="website"
+            action="mailto:hello@businessrunsbetter.com"
+            method="post" enctype="text/plain" novalidate>
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" autocomplete="name" required maxlength="120">
+        </div>
+        <div>
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200">
+        </div>
+        <div>
+          <label for="f-company">Company <span class="hint">(optional)</span></label>
+          <input id="f-company" name="company" autocomplete="organization" maxlength="160">
+        </div>
+        <div>
+          <label for="f-plan">Report type</label>
+          <select id="f-plan" name="plan" required>
+            <option value="Focused Report ($499)">Focused Report ($499)</option>
+            <option value="Comprehensive Report ($999)" selected>Comprehensive Report ($999)</option>
+            <option value="Enterprise Deep Dive ($2,499)">Enterprise Deep Dive ($2,499)</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div class="full">
+          <label for="f-question">Your research question</label>
+          <textarea id="f-question" name="question" required maxlength="2000"
+            placeholder="Example: How big is the market for mobile dog grooming in coastal North Carolina, and who are the main competitors?"></textarea>
+        </div>
+        <div class="full">
+          <label for="f-context">Context <span class="hint">(optional: audience, decision, deadline)</span></label>
+          <textarea id="f-context" name="context" maxlength="3000"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Leave this empty</label>
+          <input id="f-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="full intake-actions">
+          <button type="submit" class="btn btn-primary btn-large btn-glow">Send My Brief →</button>
+          <span class="intake-note">
+            Prefer email? Write to
+            <a href="mailto:hello@businessrunsbetter.com" style="color: var(--aurora-3);">hello@businessrunsbetter.com</a>.
+          </span>
+        </div>
+        <p class="full intake-status" id="intake-status" role="status" aria-live="polite"></p>
+        <p class="full intake-note">
+          We use these details only to reply to your request. No payment is taken here.
+        </p>
+      </form>
     </div>
   </section>
 
@@ -1516,41 +1543,39 @@
             🌙 Done By Morning
           </div>
           <p class="footer-desc">
-            AI-powered overnight research and analysis. 
-            Submit at 6pm, wake up to comprehensive reports by 6am.
+            Overnight research with every source cited. A
+            <a href="https://businessrunsbetter.com" style="color: var(--aurora-3);">Business Runs Better</a>
+            service.
           </p>
         </div>
         <div>
-          <h4 class="footer-title">Services</h4>
+          <h4 class="footer-title">Service</h4>
           <ul class="footer-links">
-            <li><a href="#">Market Research</a></li>
-            <li><a href="#">Competitor Analysis</a></li>
-            <li><a href="#">Business Plans</a></li>
-            <li><a href="#">Due Diligence</a></li>
-            <li><a href="#">Industry Reports</a></li>
+            <li><a href="#services">What we research</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="footer-title">Company</h4>
+          <h4 class="footer-title">See the work</h4>
           <ul class="footer-links">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="sample/report.html">Sample report</a></li>
+            <li><a href="https://github.com/mikecavallo/done-by-morning">Source code</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="footer-title">Legal</h4>
+          <h4 class="footer-title">Contact</h4>
           <ul class="footer-links">
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#intake">Request a report</a></li>
+            <li><a href="mailto:hello@businessrunsbetter.com">hello@businessrunsbetter.com</a></li>
+            <li><a href="https://businessrunsbetter.com">businessrunsbetter.com</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 Done By Morning. All rights reserved.</div>
-        <div>Made with 🌙 for busy executives</div>
+        <div>© 2026 Business Runs Better</div>
+        <div>Made with 🌙 in Leland, NC</div>
       </div>
     </div>
   </footer>
@@ -1569,14 +1594,16 @@
       starsContainer.appendChild(star);
     }
 
-    // Smooth scroll
+    // Smooth scroll for in-page links; pricing buttons also preselect their plan.
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (!target) return;
+        e.preventDefault();
+        const plan = this.dataset.plan;
+        if (plan) document.getElementById('f-plan').value = plan;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', this.getAttribute('href'));
       });
     });
 
@@ -1595,12 +1622,14 @@
       });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .pricing-card, .testimonial, .faq-item, .step').forEach(el => {
+    document.querySelectorAll('.service-card, .pricing-card, .faq-item, .step').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
       observer.observe(el);
     });
   </script>
+  <script src="config.js"></script>
+  <script src="intake.js"></script>
 </body>
 </html>
