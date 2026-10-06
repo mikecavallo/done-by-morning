@@ -1,0 +1,115 @@
+{
+  "request": {
+    "question": "AI document intake for small accounting firms",
+    "depth": "standard",
+    "id": "20261006-085305-ai-document-intake-for-small-accounting-firms-2ad3",
+    "email": "",
+    "context": "20-person firm deciding whether to adopt before next tax season",
+    "submitted_at": "2026-10-06T08:53:05+00:00"
+  },
+  "sub_questions": [
+    "What does adoption look like today for AI document intake for small accounting firms?",
+    "What are the typical costs and pricing models for AI document intake for small accounting firms?",
+    "What measurable benefits are reported for AI document intake for small accounting firms?",
+    "What are the main risks, including privacy and compliance, of AI document intake for small accounting firms?",
+    "How long does implementation take and what does it require for AI document intake for small accounting firms?"
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "[Fixture] Small-firm technology survey (fictional)",
+      "url": "https://example.com/fixtures/small-firm-tech-survey",
+      "snippet": "In this fictional survey of 120 small accounting firms, 38 percent said they already use some form of automated document intake, mostly for bank statements and receipts. Firms under 25 staff were the least likely to have adopted it.",
+      "found_for": "SQ1"
+    },
+    {
+      "id": 2,
+      "title": "[Fixture] Practice management newsletter: who is adopting intake automation (fictional)",
+      "url": "https://example.org/fixtures/newsletter-adoption",
+      "snippet": "Adoption tends to start with one workflow, usually client document collection during tax season, before spreading to bookkeeping. Partners cite staffing shortages as the main trigger.",
+      "found_for": "SQ1"
+    },
+    {
+      "id": 3,
+      "title": "[Fixture] Change management for client portals (fictional)",
+      "url": "https://example.com/fixtures/change-management",
+      "snippet": "Client adoption of a new upload portal was the slowest part of the fictional rollouts studied. Firms that sent short how-to videos and kept email as a fallback for the first season saw fewer complaints.",
+      "found_for": "SQ1"
+    },
+    {
+      "id": 4,
+      "title": "[Fixture] Pricing comparison of document intake tools (fictional)",
+      "url": "https://example.net/fixtures/pricing-comparison",
+      "snippet": "Fictional vendors in this comparison charge either per seat, typically 30 to 60 dollars per user per month, or per document processed. Per-document pricing favors firms with a strong seasonal peak.",
+      "found_for": "SQ2"
+    },
+    {
+      "id": 5,
+      "title": "[Fixture] Hidden costs of automation projects (fictional blog)",
+      "url": "https://example.com/fixtures/hidden-costs",
+      "snippet": "Subscription fees are usually the smaller cost. Setup, template configuration and staff time during the first tax season often exceed the first year of license fees in this fictional analysis.",
+      "found_for": "SQ2"
+    },
+    {
+      "id": 6,
+      "title": "[Fixture] Case study: a 20-person firm's first season with AI intake (fictional)",
+      "url": "https://example.org/fixtures/case-study-20-person",
+      "snippet": "The fictional firm reported cutting manual data entry on client uploads by roughly half and answering client status questions faster. It did not reduce headcount; staff moved to review work.",
+      "found_for": "SQ3"
+    },
+    {
+      "id": 7,
+      "title": "[Fixture] Accuracy benchmark for extraction models (fictional)",
+      "url": "https://example.net/fixtures/accuracy-benchmark",
+      "snippet": "Field-level extraction accuracy in this fictional benchmark ranged from 85 to 97 percent depending on document quality. Handwritten and photographed documents produced most errors, so human review stayed necessary.",
+      "found_for": "SQ3"
+    },
+    {
+      "id": 8,
+      "title": "[Fixture] Data privacy checklist for client documents (fictional)",
+      "url": "https://example.com/fixtures/privacy-checklist",
+      "snippet": "Before uploading client tax documents to any cloud tool, confirm where data is stored, whether it is used to train models, how long it is retained, and that a written information security plan covers the new system.",
+      "found_for": "SQ4"
+    },
+    {
+      "id": 9,
+      "title": "[Fixture] Professional liability note on automated workflows (fictional)",
+      "url": "https://example.org/fixtures/liability-note",
+      "snippet": "This fictional insurer note warns that responsibility for errors stays with the firm. Firms should document their review step and keep an audit trail of what the tool extracted and what staff changed.",
+      "found_for": "SQ4"
+    },
+    {
+      "id": 10,
+      "title": "[Fixture] Implementation timeline guide (fictional)",
+      "url": "https://example.net/fixtures/implementation-timeline",
+      "snippet": "A typical small-firm rollout in this fictional guide takes six to ten weeks: two weeks to choose a tool, two to four weeks to configure templates and the client portal, and a pilot with a handful of clients before tax season.",
+      "found_for": "SQ5"
+    },
+    {
+      "id": 11,
+      "title": "[Fixture] Integration requirements with practice software (fictional)",
+      "url": "https://example.com/fixtures/integration-requirements",
+      "snippet": "The main technical requirement is a working integration with the firm's existing practice management and tax software. Without it, staff end up re-keying extracted data, which removes most of the benefit.",
+      "found_for": "SQ5"
+    }
+  ],
+  "body_markdown": "## Executive summary\n\nThis report examines AI document intake for small accounting firms from 5 angles using 11 sources. In this fictional survey of 120 small accounting firms, 38 percent said they already use some form of automated document intake, mostly for bank statements and receipts [1]. Adoption tends to start with one workflow, usually client document collection during tax season, before spreading to bookkeeping [2]. Client adoption of a new upload portal was the slowest part of the fictional rollouts studied [3].\n\n## Findings\n\n### 1. What does adoption look like today for AI document intake for small accounting firms?\n\n- In this fictional survey of 120 small accounting firms, 38 percent said they already use some form of automated document intake, mostly for bank statements and receipts [1].\n- Adoption tends to start with one workflow, usually client document collection during tax season, before spreading to bookkeeping [2].\n- Client adoption of a new upload portal was the slowest part of the fictional rollouts studied [3].\n\n### 2. What are the typical costs and pricing models for AI document intake for small accounting firms?\n\n- Fictional vendors in this comparison charge either per seat, typically 30 to 60 dollars per user per month, or per document processed [4].\n- Subscription fees are usually the smaller cost [5].\n\n### 3. What measurable benefits are reported for AI document intake for small accounting firms?\n\n- The fictional firm reported cutting manual data entry on client uploads by roughly half and answering client status questions faster [6].\n- Field-level extraction accuracy in this fictional benchmark ranged from 85 to 97 percent depending on document quality [7].\n\n### 4. What are the main risks, including privacy and compliance, of AI document intake for small accounting firms?\n\n- Before uploading client tax documents to any cloud tool, confirm where data is stored, whether it is used to train models, how long it is retained, and that a written information security plan covers the new system [8].\n- This fictional insurer note warns that responsibility for errors stays with the firm [9].\n\n### 5. How long does implementation take and what does it require for AI document intake for small accounting firms?\n\n- A typical small-firm rollout in this fictional guide takes six to ten weeks: two weeks to choose a tool, two to four weeks to configure templates and the client portal, and a pilot with a handful of clients before tax season [10].\n- The main technical requirement is a working integration with the firm's existing practice management and tax software [11].\n\n## Limitations and open questions\n\n- This draft was assembled by the offline mock model, which restates source excerpts rather than reasoning over them. A real run uses an LLM for synthesis.\n- Every statement above is only as reliable as its cited source. Check the references before acting on any figure.",
+  "llm_provider": "mock",
+  "search_provider": "mock",
+  "generated_at": "2026-10-06T08:53:05+00:00",
+  "is_sample": true,
+  "warnings": [],
+  "cited_source_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ]
+}
